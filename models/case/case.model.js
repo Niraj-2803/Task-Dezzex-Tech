@@ -1,5 +1,7 @@
 const pool = require("../../config/db");
 
+// Database operations for cases
+
 exports.createCase = async (caseData) => {
   const {
     caseTitle,

@@ -13,7 +13,7 @@ const CaseController = require("../../controllers/case/case.controller");
  * @swagger
  * /api/cases:
  *   post:
- *     summary: Create a new case (normal flow)
+ *     summary: Create a new case
  *     tags: [Cases]
  *     requestBody:
  *       required: true
@@ -33,7 +33,7 @@ const CaseController = require("../../controllers/case/case.controller");
  *               caseTitle:
  *                 type: string
  *               caseNumber:
- *                 type: string
+ *                 type: number
  *                 description: Auto-generated format CASE-<input_number>
  *               caseType:
  *                 type: string
@@ -74,8 +74,8 @@ const CaseController = require("../../controllers/case/case.controller");
  *                   type: integer
  *               status:
  *                 type: string
- *                 enum: [active, closed, pending]
- *                 default: active
+ *                 enum: [open, closed, pending]
+ *                 default: open
  *     responses:
  *       200:
  *         description: Case created successfully

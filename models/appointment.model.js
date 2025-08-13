@@ -1,8 +1,6 @@
 const pool = require("../config/db");
 const { toMySQLDateTime } = require("../utils/functions/dateFormatter");
 
-const { appointmentSchema, pickAppointmentFields } = require("../validations/appointment.validation");
-
 // Create appointment with validation logic applied in controller, here just DB logic
 exports.create = async (appointment) => {
   const { clientName, duration, dateTime, bookedOn, lawyer_id } = appointment;

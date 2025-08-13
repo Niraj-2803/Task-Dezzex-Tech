@@ -1,13 +1,9 @@
 const CaseModel = require("../../models/case/case.model");
-const {
-  createCaseSchema,
-  updateCaseSchema,
-} = require("../../validations/case.validation");
+const { createCaseSchema, updateCaseSchema } = require("../../validations/case.validation");
 const { error, success } = require("../../utils/functions/response");
-const {
-  checkClientExists,
-} = require("../../utils/functions/checkClientExists");
+const { checkClientExists } = require("../../utils/functions/checkClientExists");
 
+// Create a case
 exports.createCase = async (req, res) => {
   try {
     const { error: validationError, value } = createCaseSchema.validate(
@@ -35,6 +31,7 @@ exports.createCase = async (req, res) => {
   }
 };
 
+// Create case from client listing
 exports.createCaseByClientId = async (req, res) => {
   try {
     const {
@@ -100,6 +97,7 @@ exports.createCaseByClientId = async (req, res) => {
   }
 };
 
+// Get all cases
 exports.getAllCases = async (req, res) => {
   try {
     const { caseTitle, page = 1, limit = 10 } = req.query;
@@ -114,6 +112,7 @@ exports.getAllCases = async (req, res) => {
   }
 };
 
+//Get Case By Id
 exports.getCaseById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -128,6 +127,7 @@ exports.getCaseById = async (req, res) => {
   }
 };
 
+//Update a case by Id
 exports.updateCase = async (req, res) => {
   try {
     const { id } = req.params;
@@ -147,6 +147,7 @@ exports.updateCase = async (req, res) => {
   }
 };
 
+// Delete a case by Id
 exports.deleteCase = async (req, res) => {
   try {
     const { id } = req.params;

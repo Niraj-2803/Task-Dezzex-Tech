@@ -61,6 +61,7 @@ const CaseManagerController = require("../../controllers/case/case-manager.contr
  *       500:
  *         description: Internal server error
  */
+router.post("/:id/comments", CaseManagerController.addComment);
 
 /**
  * @swagger
@@ -101,6 +102,7 @@ const CaseManagerController = require("../../controllers/case/case-manager.contr
  *       500:
  *         description: Internal server error
  */
+router.get("/:id/comments", CaseManagerController.getComments);
 
 /**
  * @swagger
@@ -141,6 +143,7 @@ const CaseManagerController = require("../../controllers/case/case-manager.contr
  *       500:
  *         description: Internal server error
  */
+router.post("/:id/notes", CaseManagerController.addNote);
 
 /**
  * @swagger
@@ -184,6 +187,7 @@ const CaseManagerController = require("../../controllers/case/case-manager.contr
  *       500:
  *         description: Internal server error
  */
+router.get("/:id/notes", CaseManagerController.getNotes);
 
 /**
  * @swagger
@@ -224,6 +228,7 @@ const CaseManagerController = require("../../controllers/case/case-manager.contr
  *       500:
  *         description: Internal server error
  */
+router.post("/:id/lawyers", CaseManagerController.addLawyer);
 
 /**
  * @swagger
@@ -257,6 +262,7 @@ const CaseManagerController = require("../../controllers/case/case-manager.contr
  *       500:
  *         description: Internal server error
  */
+router.get("/:id/lawyers", CaseManagerController.getTeamLawyers);
 
 /**
  * @swagger
@@ -285,6 +291,7 @@ const CaseManagerController = require("../../controllers/case/case-manager.contr
  *       500:
  *         description: Internal server error
  */
+router.delete("/:id/lawyers/:lawyerId", CaseManagerController.removeLawyer);
 
 /**
  * @swagger
@@ -319,6 +326,7 @@ const CaseManagerController = require("../../controllers/case/case-manager.contr
  *       500:
  *         description: Internal server error
  */
+router.post("/:id/files", CaseManagerController.addFile);
 
 /**
  * @swagger
@@ -362,15 +370,6 @@ const CaseManagerController = require("../../controllers/case/case-manager.contr
  *       500:
  *         description: Internal server error
  */
-
-router.post("/:id/comments", CaseManagerController.addComment);
-router.get("/:id/comments", CaseManagerController.getComments);
-router.post("/:id/notes", CaseManagerController.addNote);
-router.get("/:id/notes", CaseManagerController.getNotes);
-router.post("/:id/lawyers", CaseManagerController.addLawyer);
-router.get("/:id/lawyers", CaseManagerController.getTeamLawyers);
-router.delete("/:id/lawyers/:lawyerId", CaseManagerController.removeLawyer);
-router.post("/:id/files", CaseManagerController.addFile);
 router.get("/:id/files", CaseManagerController.getFiles);
 
 module.exports = router;

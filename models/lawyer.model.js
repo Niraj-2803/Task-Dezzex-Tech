@@ -8,7 +8,8 @@ const ARRAY_FIELDS = [
   "timing",
 ];
 
-// DB Logic for controller operations
+// Database operations for lawyers
+
 exports.create = async (lawyer) => {
   const {
     firstName,

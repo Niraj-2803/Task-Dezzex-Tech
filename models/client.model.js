@@ -1,5 +1,7 @@
 const pool = require("../config/db");
 
+// Database operations for clients
+
 exports.create = async (client) => {
   const {
     clientType,

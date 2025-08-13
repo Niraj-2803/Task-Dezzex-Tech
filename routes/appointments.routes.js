@@ -13,7 +13,7 @@ const controller = require("../controllers/appointment.controller");
  * @swagger
  * /api/appointments:
  *   post:
- *     summary: Create an appointment
+ *     summary: Create an appointment - Book an appointment [Flow 1]
  *     tags: [Appointments]
  *     requestBody:
  *       required: true

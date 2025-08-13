@@ -19,7 +19,7 @@ const options = {
     },
     security: [{ bearerAuth: [] }],
   },
-  apis: ["./routes/*.js", "./routes/case/*.js", "./validations/*.js"],
+  apis: ["./routes/*.js", "./routes/case/*.js"],
 };
 
 const swaggerSpec = swaggerJsdoc(options);

@@ -1,10 +1,8 @@
 const Blog = require("../models/blog.model");
 const { success, error } = require("../utils/functions/response");
-const {
-  blogSchema,
-  pickBlogFields,
-} = require("../validations/blog.validation");
+const { blogSchema, pickBlogFields } = require("../validations/blog.validation");
 
+// Create a new blog post
 exports.createBlog = async (req, res) => {
   try {
     const { error: validationError, value } = blogSchema.validate(req.body, {
@@ -25,6 +23,7 @@ exports.createBlog = async (req, res) => {
   }
 };
 
+// Get all blogs
 exports.getBlogs = async (req, res) => {
   try {
     const { title, page = 1, limit = 10 } = req.query;
@@ -38,6 +37,7 @@ exports.getBlogs = async (req, res) => {
   }
 };
 
+// Update a blog post by id
 exports.updateBlog = async (req, res) => {
   try {
     const { id } = req.params;
@@ -59,6 +59,7 @@ exports.updateBlog = async (req, res) => {
   }
 };
 
+// Delete a blog post by id
 exports.deleteBlog = async (req, res) => {
   try {
     const { id } = req.params;

@@ -2,7 +2,7 @@ const Appointment = require("../models/appointment.model");
 const { success, error } = require("../utils/functions/response");
 const { appointmentSchema } = require("../validations/appointment.validation");
 
-// Create Appointment
+// Create Appointment - Book an appointment
 exports.createAppointment = async (req, res) => {
   try {
     const { error: validationError, value } = appointmentSchema.validate(
@@ -43,7 +43,7 @@ exports.getAppointments = async (req, res) => {
   }
 };
 
-// Get appointments by lawyer ID
+// Get appointments by lawyer ID - for a specific lawyer
 exports.getAppointmentsByLawyerId = async (req, res) => {
   try {
     const { lawyer_id } = req.params;

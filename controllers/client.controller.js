@@ -1,11 +1,9 @@
 const Client = require("../models/client.model");
 const { success, error } = require("../utils/functions/response");
-const { checkLawyerExists } = require("../utils/functions/dbHelper");
-const {
-  clientSchema,
-  pickClientFields,
-} = require("../validations/client.validation");
+const { checkLawyerExists } = require("../utils/functions/checkLawyerExists");
+const { clientSchema, pickClientFields } = require("../validations/client.validation");
 
+// Create a new client
 exports.createClient = async (req, res) => {
   try {
     const { error: validationError, value } = clientSchema.validate(req.body, {
@@ -19,7 +17,7 @@ exports.createClient = async (req, res) => {
     }
 
     // Checking if assigned lawyer exists - assuming client will select a lawyer
-    const lawyerExists = await checkLawyerExists(clientSchema.assignedLawyer);
+    const lawyerExists = await checkLawyerExists(Number(req.body.assignedLawyer));
     if (!lawyerExists) {
       return res
         .status(400)
@@ -34,6 +32,7 @@ exports.createClient = async (req, res) => {
   }
 };
 
+// Get all clients
 exports.getClients = async (req, res) => {
   try {
     const { name, status, page = 1, limit = 10 } = req.query;
@@ -48,6 +47,7 @@ exports.getClients = async (req, res) => {
   }
 };
 
+// Update a client by id
 exports.updateClient = async (req, res) => {
   try {
     const { id } = req.params;
@@ -80,6 +80,7 @@ exports.updateClient = async (req, res) => {
   }
 };
 
+// Delete a client by id
 exports.deleteClient = async (req, res) => {
   try {
     const { id } = req.params;

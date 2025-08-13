@@ -1,5 +1,7 @@
 const pool = require("../config/db");
 
+// Database operations for blogs
+
 exports.create = async (blog) => {
   const {
     image,

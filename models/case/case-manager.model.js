@@ -1,5 +1,7 @@
 const pool = require("../../config/db");
 
+// Database operations for case management
+
 exports.addComment = async (caseId, comment) => {
   const [result] = await pool.query(
     `INSERT INTO case_comments (caseId, comment) VALUES (?, ?)`,

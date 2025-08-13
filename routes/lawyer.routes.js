@@ -80,7 +80,7 @@ router.post("/", controller.createLawyer);
  * @swagger
  * /api/lawyer:
  *   get:
- *     summary: Get list of lawyers with filters and pagination
+ *     summary: Get list of lawyers (All / Lawyer By Type) - [Flow 1]
  *     tags: [Lawyers]
  *     parameters:
  *       - in: query
